@@ -12,5 +12,5 @@ fig = px.scatter_matrix(df,
                             title="Scatter matrix of stress level vs. several related factors"
                         )
 
+# To display figure, run the code, and in the terminal, run "firefox scatter_matrix.html"
 fig.write_html("scatter_matrix.html")
-#print(df)
