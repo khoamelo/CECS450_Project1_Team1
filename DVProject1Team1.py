@@ -1,6 +1,6 @@
 import plotly.express as px
+from sklearn.preprocessing import MinMaxScaler
+import pandas as pd
 
-fig = px.scatter(x=[0, 1, 2, 3, 4], y=[0, 1, 4, 9, 16])
-
-"firefox scatter_plot.html"
-fig.write_html("scatter_plot.html") 
+df = pd.read_csv('StressLevelDataset.csv')
+print(df)
