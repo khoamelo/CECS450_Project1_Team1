@@ -141,7 +141,11 @@ fig = go.Figure(
             symbol=shapes,
             size=sizes,
             color=scaled_means,             # color by scaled mean
-            colorscale="Viridis",           # nice interactive colormap
+            colorscale=[                    # green → yellow → red
+                [0, "green"], 
+                [0.5, "yellow"], 
+                [1, "red"]
+            ],           
             showscale=True,                 # colorbar legend
             colorbar=dict(title="Mean (0–5)")
         ),
