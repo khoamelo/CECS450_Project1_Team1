@@ -130,18 +130,8 @@ categories = [category_of(n) for n in names]
 shapes = [shape_map.get(cat, "diamond") for cat in categories]
 
 #size range
-MIN_SIZE, MAX_SIZE = 10.0, 40.0
-BASE_SIZE = (MIN_SIZE + MAX_SIZE) / 2
-
-# calculate sizes based on correlation values
-max_abs_corr = max([abs(c) for c in corr_vals]) if corr_vals else 1.0
-sizes = []
-for c in corr_vals:
-    if c >= 0:  # positive correlation -> larger than base size
-        size = BASE_SIZE + (c / max_abs_corr) * (MAX_SIZE - BASE_SIZE)
-    else:  # negative correlation -> smaller than base size
-        size = BASE_SIZE + (c / max_abs_corr) * (BASE_SIZE - MIN_SIZE)
-    sizes.append(size)
+MIN_SIZE, MAX_SIZE = 20.0, 80.0
+sizes = [MIN_SIZE + (m/5.0) * (MAX_SIZE - MIN_SIZE) for m in scaled_means]
 
 #plot with color scale
 fig = go.Figure(
